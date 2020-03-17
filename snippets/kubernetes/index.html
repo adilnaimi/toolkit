@@ -1,0 +1,1303 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Kubernetes cheatsheet, snippets, troubleshooting, tips, hints">
+      
+      
+        <link rel="canonical" href="https://rammusxu.github.io/toolkit/snippets/kubernetes/">
+      
+      
+        <meta name="author" content="Rammus Xu">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.3">
+    
+    
+      
+        <title>Kubernetes - Rammus Toolkit</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.adb8469c.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-67048750-3", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#volumes" tabindex="0" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://rammusxu.github.io/toolkit" title="Rammus Toolkit" aria-label="Rammus Toolkit" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">build</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Rammus Toolkit
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Kubernetes
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/RammusXu/toolkit/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://rammusxu.github.io/toolkit" title="Rammus Toolkit" class="md-nav__button md-logo">
+      
+        <i class="md-icon">build</i>
+      
+    </a>
+    Rammus Toolkit
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/RammusXu/toolkit/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Welcome" class="md-nav__link">
+      Welcome
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../help/" title="Help" class="md-nav__link">
+      Help
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Snippets
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Snippets
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../bash/" title="Bash" class="md-nav__link">
+      Bash
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../docker-compose/" title="Docker Compose" class="md-nav__link">
+      Docker Compose
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../docker/" title="Docker" class="md-nav__link">
+      Docker
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../elasticsearch/" title="Elasticsearch" class="md-nav__link">
+      Elasticsearch
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gcp/" title="GCP" class="md-nav__link">
+      GCP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../github-action/" title="Github Action" class="md-nav__link">
+      Github Action
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gitlabci/" title="Gitlab CI" class="md-nav__link">
+      Gitlab CI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../jenkins/" title="Jenkins" class="md-nav__link">
+      Jenkins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Kubernetes
+      </label>
+    
+    <a href="./" title="Kubernetes" class="md-nav__link md-nav__link--active">
+      Kubernetes
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#volumes" class="md-nav__link">
+    Volumes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    Resources
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pvc" class="md-nav__link">
+    PVC
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#affinity" class="md-nav__link">
+    Affinity
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pod-node" class="md-nav__link">
+    Pod 只能放在符合以下條件的 Node
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#node-pod" class="md-nav__link">
+    同一個 Node 不放一樣的 Pod
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#env" class="md-nav__link">
+    env
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metadataannotations" class="md-nav__link">
+    metadata.annotations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metadataname-metadatanamespace" class="md-nav__link">
+    metadata.name metadata.namespace
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secret" class="md-nav__link">
+    Secret
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#envfrom" class="md-nav__link">
+    envFrom
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#volumemounts-from-configmap" class="md-nav__link">
+    volumeMounts from configmap
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#container-injection" class="md-nav__link">
+    Container Injection
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etchosts-and-etcresolvconf" class="md-nav__link">
+    /etc/hosts and /etc/resolv.conf
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-with-commands" class="md-nav__link">
+    Container with commands
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#frequent-commands" class="md-nav__link">
+    Frequent Commands
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gracefully-rolling-restart-deployment" class="md-nav__link">
+    Gracefully rolling restart deployment.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    Reference
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" class="md-nav__link md-nav__link--active">
+            Comments
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../lua/" title="Lua" class="md-nav__link">
+      Lua
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../mac-setup/" title="Mac Setup" class="md-nav__link">
+      Mac Setup
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../make/" title="Make" class="md-nav__link">
+      Make
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../mongo/" title="Mongo" class="md-nav__link">
+      Mongo
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../nginx/" title="Nginx" class="md-nav__link">
+      Nginx
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../visual-studio/" title="Visual Studio" class="md-nav__link">
+      Visual Studio
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Today i learned
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Today i learned
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../today-i-learned/2019/" title="2019" class="md-nav__link">
+      2019
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../today-i-learned/2020/" title="2020" class="md-nav__link">
+      2020
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#volumes" class="md-nav__link">
+    Volumes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    Resources
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pvc" class="md-nav__link">
+    PVC
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#affinity" class="md-nav__link">
+    Affinity
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pod-node" class="md-nav__link">
+    Pod 只能放在符合以下條件的 Node
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#node-pod" class="md-nav__link">
+    同一個 Node 不放一樣的 Pod
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#env" class="md-nav__link">
+    env
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metadataannotations" class="md-nav__link">
+    metadata.annotations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metadataname-metadatanamespace" class="md-nav__link">
+    metadata.name metadata.namespace
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secret" class="md-nav__link">
+    Secret
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#envfrom" class="md-nav__link">
+    envFrom
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#volumemounts-from-configmap" class="md-nav__link">
+    volumeMounts from configmap
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#container-injection" class="md-nav__link">
+    Container Injection
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etchosts-and-etcresolvconf" class="md-nav__link">
+    /etc/hosts and /etc/resolv.conf
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-with-commands" class="md-nav__link">
+    Container with commands
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#frequent-commands" class="md-nav__link">
+    Frequent Commands
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gracefully-rolling-restart-deployment" class="md-nav__link">
+    Gracefully rolling restart deployment.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    Reference
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" class="md-nav__link md-nav__link--active">
+            Comments
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/RammusXu/toolkit/edit/master/docs/snippets/kubernetes.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Kubernetes</h1>
+                
+                <h2 id="volumes">Volumes<a class="headerlink" href="#volumes" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="nt">spec</span><span class="p">:</span>
+  <span class="nt">template</span><span class="p">:</span>
+    <span class="nt">spec</span><span class="p">:</span>
+      <span class="nt">volumes</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">plugindir</span>
+        <span class="nt">emptyDir</span><span class="p">:</span> <span class="p p-Indicator">{}</span>
+
+      <span class="nt">containers</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mongos</span>
+        <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mongo:4.0.2</span>
+        <span class="nt">volumeMounts</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mongo-socket</span>
+          <span class="nt">mountPath</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/tmp</span>
+</code></pre></div>
+
+<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>        <span class="nt">resources</span><span class="p">:</span>
+          <span class="nt">limits</span><span class="p">:</span>
+            <span class="nt">cpu</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+            <span class="nt">memory</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2G</span>
+          <span class="nt">requests</span><span class="p">:</span>
+            <span class="nt">cpu</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+            <span class="nt">memory</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2G</span>
+</code></pre></div>
+
+<h2 id="pvc">PVC<a class="headerlink" href="#pvc" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">PersistentVolumeClaim</span>
+<span class="nt">metadata</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">grafana</span>
+  <span class="nt">labels</span><span class="p">:</span>
+    <span class="nt">app</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">grafana</span>
+<span class="nt">spec</span><span class="p">:</span>
+  <span class="nt">accessModes</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ReadWriteOnce</span>
+  <span class="nt">resources</span><span class="p">:</span>
+    <span class="nt">requests</span><span class="p">:</span>
+      <span class="nt">storage</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10Gi</span>
+  <span class="nt">storageClassName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">standard</span>
+
+<span class="nn">---</span>
+<span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
+<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Deployment</span>
+<span class="nt">metadata</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">grafana</span>
+  <span class="nt">labels</span><span class="p">:</span>
+    <span class="nt">app</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">grafana</span>
+<span class="nt">spec</span><span class="p">:</span>
+  <span class="nt">replicas</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+  <span class="nt">selector</span><span class="p">:</span>
+    <span class="nt">matchLabels</span><span class="p">:</span>
+      <span class="nt">app</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">grafana</span>
+  <span class="nt">strategy</span><span class="p">:</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">RollingUpdate</span>
+  <span class="nt">template</span><span class="p">:</span>
+    <span class="nt">metadata</span><span class="p">:</span>
+      <span class="nt">labels</span><span class="p">:</span>
+        <span class="nt">app</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">grafana</span>
+    <span class="nt">spec</span><span class="p">:</span>
+      <span class="nt">volumes</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">storage</span>
+          <span class="nt">persistentVolumeClaim</span><span class="p">:</span>
+            <span class="nt">claimName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">standard</span>
+          <span class="c1"># emptyDir: {}</span>
+</code></pre></div>
+
+<h2 id="affinity">Affinity<a class="headerlink" href="#affinity" title="Permanent link">&para;</a></h2>
+<h3 id="pod-node">Pod 只能放在符合以下條件的 Node<a class="headerlink" href="#pod-node" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code>    <span class="nt">spec</span><span class="p">:</span>
+      <span class="nt">affinity</span><span class="p">:</span>
+        <span class="nt">nodeAffinity</span><span class="p">:</span>
+          <span class="nt">requiredDuringSchedulingIgnoredDuringExecution</span><span class="p">:</span>
+            <span class="nt">nodeSelectorTerms</span><span class="p">:</span>
+            <span class="p p-Indicator">-</span> <span class="nt">matchExpressions</span><span class="p">:</span>
+              <span class="p p-Indicator">-</span> <span class="nt">key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cloud.google.com/gke-preemptible</span>
+                <span class="nt">operator</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">NotIn</span>
+                <span class="nt">values</span><span class="p">:</span>
+                <span class="p p-Indicator">-</span> <span class="s">&quot;true&quot;</span>
+              <span class="p p-Indicator">-</span> <span class="nt">key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sysctl/vm.max_map_count</span>
+                <span class="nt">operator</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">In</span>
+                <span class="nt">values</span><span class="p">:</span>
+                <span class="p p-Indicator">-</span> <span class="s">&quot;262144&quot;</span>
+</code></pre></div>
+
+<h3 id="node-pod">同一個 Node 不放一樣的 Pod<a class="headerlink" href="#node-pod" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code>    <span class="nt">spec</span><span class="p">:</span>
+      <span class="nt">affinity</span><span class="p">:</span>
+        <span class="nt">podAntiAffinity</span><span class="p">:</span>
+          <span class="nt">requiredDuringSchedulingIgnoredDuringExecution</span><span class="p">:</span>
+            <span class="p p-Indicator">-</span> <span class="nt">topologyKey</span><span class="p">:</span> <span class="s">&quot;kubernetes.io/hostname&quot;</span>
+              <span class="nt">labelSelector</span><span class="p">:</span>
+                <span class="nt">matchExpressions</span><span class="p">:</span>
+                  <span class="p p-Indicator">-</span> <span class="nt">key</span><span class="p">:</span> <span class="s">&quot;app&quot;</span>
+                    <span class="nt">operator</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">In</span>
+                    <span class="nt">values</span><span class="p">:</span>
+                    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">mongo-sh0</span>
+</code></pre></div>
+
+<h2 id="env">env<a class="headerlink" href="#env" title="Permanent link">&para;</a></h2>
+<h3 id="metadataannotations">metadata.annotations<a class="headerlink" href="#metadataannotations" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code>      <span class="nt">template</span><span class="p">:</span>
+        <span class="nt">metadata</span><span class="p">:</span>
+          <span class="nt">annotations</span><span class="p">:</span>
+            <span class="nt">version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">abc4444</span>
+
+        <span class="nt">spec</span><span class="p">:</span>
+          <span class="nt">containers</span><span class="p">:</span>
+          <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cronjob</span>
+            <span class="nt">env</span><span class="p">:</span>
+            <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">MY_VERSION</span>
+              <span class="nt">valueFrom</span><span class="p">:</span>
+                <span class="nt">fieldRef</span><span class="p">:</span>
+                  <span class="nt">fieldPath</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">metadata.annotations[&#39;version&#39;]</span>
+</code></pre></div>
+
+<h3 id="metadataname-metadatanamespace">metadata.name metadata.namespace<a class="headerlink" href="#metadataname-metadatanamespace" title="Permanent link">&para;</a></h3>
+<p>ref: <a href="https://kubernetes.io/docs/tasks/inject-data-application/downward-api-volume-expose-pod-information/#capabilities-of-the-downward-api">https://kubernetes.io/docs/tasks/inject-data-application/downward-api-volume-expose-pod-information/#capabilities-of-the-downward-api</a>
+<div class="codehilite"><pre><span></span><code>          <span class="nt">env</span><span class="p">:</span>
+          <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">POD_NAMESPACE</span>
+            <span class="nt">valueFrom</span><span class="p">:</span>
+              <span class="nt">fieldRef</span><span class="p">:</span>
+                <span class="nt">fieldPath</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">metadata.namespace</span>
+          <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">POD_NAME</span>
+            <span class="nt">valueFrom</span><span class="p">:</span>
+              <span class="nt">fieldRef</span><span class="p">:</span>
+                <span class="nt">fieldPath</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">metadata.name</span>
+</code></pre></div></p>
+<h3 id="secret">Secret<a class="headerlink" href="#secret" title="Permanent link">&para;</a></h3>
+<p>Encode/Decode
+<div class="codehilite"><pre><span></span><code><span class="nb">echo</span> -n <span class="s1">&#39;mykey&#39;</span> <span class="p">|</span> base64
+<span class="nb">echo</span> -n <span class="s1">&#39;bXlrZXk=&#39;</span> <span class="p">|</span> base64 -D
+</code></pre></div></p>
+<div class="codehilite"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Secret</span>
+<span class="nt">metadata</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mysecret</span>
+<span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Opaque</span>
+<span class="nt">data</span><span class="p">:</span>
+  <span class="nt">mykey</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">bXlrZXk=</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="nt">spec</span><span class="p">:</span>
+  <span class="nt">containers</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mycontainer</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">redis</span>
+    <span class="nt">env</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SECRET_USERNAME</span>
+      <span class="nt">valueFrom</span><span class="p">:</span>
+        <span class="nt">secretKeyRef</span><span class="p">:</span>
+          <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mysecret</span>
+          <span class="nt">key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mykey</span>
+</code></pre></div>
+
+<h3 id="envfrom">envFrom<a class="headerlink" href="#envfrom" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="nt">spec</span><span class="p">:</span>
+  <span class="nt">containers</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">http</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">asia.gcr.io/swag-2c052/swag:42ff66b1</span>
+    <span class="nt">envFrom</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">configMapRef</span><span class="p">:</span>
+      <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">myconfigmap</span>
+    <span class="p p-Indicator">-</span> <span class="nt">secretRef</span><span class="p">:</span>
+      <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mysecret</span>
+</code></pre></div>
+
+<h3 id="volumemounts-from-configmap">volumeMounts from configmap<a class="headerlink" href="#volumemounts-from-configmap" title="Permanent link">&para;</a></h3>
+<div class="superfences-tabs">
+<input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
+<label for="__tab_1_0">Pod</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><code>    <span class="nt">spec</span><span class="p">:</span>
+      <span class="nt">volumes</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">config</span>
+        <span class="nt">configMap</span><span class="p">:</span>
+          <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">nginx-config</span>
+
+      <span class="nt">containers</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echoserver</span>
+        <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gcr.io/google_containers/echoserver:1.10</span>
+        <span class="nt">ports</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="nt">containerPort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8080</span>
+
+        <span class="c1"># nginx.conf override</span>
+        <span class="nt">volumeMounts</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">config</span>
+          <span class="nt">subPath</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">nginx.conf</span>
+          <span class="nt">mountPath</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/etc/nginx/nginx.conf</span>
+          <span class="c1"># mountPath: /usr/local/openresty/nginx/conf/nginx.conf</span>
+          <span class="nt">readOnly</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+</code></pre></div></div>
+<input name="__tabs_1" type="radio" id="__tab_1_1" />
+<label for="__tab_1_1">ConfigMap</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ConfigMap</span>
+<span class="nt">metadata</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">nginx-config</span>
+  <span class="nt">namespace</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ingress-nginx</span>
+<span class="nt">data</span><span class="p">:</span>
+  <span class="nt">nginx.conf</span><span class="p">:</span> <span class="p p-Indicator">|-</span>
+    <span class="no">events {</span>
+      <span class="no">worker_connections 1024;</span>
+    <span class="no">}</span>
+</code></pre></div></div>
+</div>
+<h2 id="container-injection">Container Injection<a class="headerlink" href="#container-injection" title="Permanent link">&para;</a></h2>
+<h3 id="etchosts-and-etcresolvconf">/etc/hosts and /etc/resolv.conf<a class="headerlink" href="#etchosts-and-etcresolvconf" title="Permanent link">&para;</a></h3>
+<p>ref:</p>
+<ul>
+<li><a href="https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/#adding-additional-entries-with-hostaliases">https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/#adding-additional-entries-with-hostaliases</a></li>
+<li><a href="https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-config">https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-config</a></li>
+</ul>
+<p>This will append hostname and overwrite /etc/resolv.conf</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">extensions/v1beta1</span>
+<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Deployment</span>
+<span class="nt">metadata</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dnsmasq</span>
+  <span class="nt">labels</span><span class="p">:</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dnsmasq</span>
+<span class="nt">spec</span><span class="p">:</span>
+  <span class="nt">strategy</span><span class="p">:</span>
+    <span class="nt">rollingUpdate</span><span class="p">:</span>
+      <span class="nt">maxSurge</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+      <span class="nt">maxUnavailable</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">RollingUpdate</span>
+  <span class="nt">template</span><span class="p">:</span>
+    <span class="nt">metadata</span><span class="p">:</span>
+      <span class="nt">labels</span><span class="p">:</span>
+        <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dnsmasq</span>
+    <span class="nt">spec</span><span class="p">:</span>
+      <span class="nt">hostAliases</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">ip</span><span class="p">:</span> <span class="s">&quot;35.227.233.133&quot;</span>
+        <span class="nt">hostnames</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="s">&quot;swag.live&quot;</span>
+      <span class="nt">dnsPolicy</span><span class="p">:</span> <span class="s">&quot;None&quot;</span>
+      <span class="nt">dnsConfig</span><span class="p">:</span>
+        <span class="nt">nameservers</span><span class="p">:</span>
+          <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">1.1.1.1</span>
+          <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">8.8.8.8</span>
+      <span class="nt">containers</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">rammusxu/dnsmasq</span>
+        <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dnsmasq</span>
+        <span class="nt">resources</span><span class="p">:</span>
+          <span class="nt">requests</span><span class="p">:</span>
+            <span class="nt">cpu</span><span class="p">:</span> <span class="s">&quot;100m&quot;</span>
+            <span class="nt">memory</span><span class="p">:</span> <span class="s">&quot;100M&quot;</span>   
+        <span class="nt">ports</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="nt">containerPort</span><span class="p">:</span>  <span class="l l-Scalar l-Scalar-Plain">53</span>
+          <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dnsmasq</span>
+        <span class="p p-Indicator">-</span> <span class="nt">containerPort</span><span class="p">:</span>  <span class="l l-Scalar l-Scalar-Plain">53</span>
+          <span class="nt">protocol</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">UDP</span>
+          <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dnsmasq-udp</span>
+        <span class="nt">imagePullPolicy</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Always</span>
+</code></pre></div>
+
+<h3 id="container-with-commands">Container with commands<a class="headerlink" href="#container-with-commands" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">imagemagick</span>
+        <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">swaglive/imagemagick:lastest</span>
+        <span class="nt">command</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&quot;/bin/sh&quot;</span><span class="p p-Indicator">,</span><span class="s">&quot;-c&quot;</span><span class="p p-Indicator">]</span>
+        <span class="nt">args</span><span class="p">:</span> 
+        <span class="p p-Indicator">-</span> <span class="p p-Indicator">|</span>
+          <span class="no">magick montage -quality 90 -resize 211x292^ -gravity center -crop 211x292+0+0 -geometry +4+4 -tile 7x4 -background none +repage $(cat /tmp/covers.txt) /tmp/montage.jpg</span>
+        <span class="nt">volumeMounts</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tmp</span>
+          <span class="nt">mountPath</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/tmp</span>
+</code></pre></div>
+
+<h2 id="frequent-commands">Frequent Commands<a class="headerlink" href="#frequent-commands" title="Permanent link">&para;</a></h2>
+<h3 id="gracefully-rolling-restart-deployment">Gracefully rolling restart deployment.<a class="headerlink" href="#gracefully-rolling-restart-deployment" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code>kubectl rollout restart deployment/my-sites --namespace<span class="o">=</span>default
+</code></pre></div>
+
+<h2 id="reference">Reference<a class="headerlink" href="#reference" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://kubernetes.feisky.xyz/">feiskyer Handbook</a></li>
+<li><a href="https://github.com/feiskyer/kubernetes-handbook/tree/master/examples">feiskyer Examples</a></li>
+</ul>
+                
+                  
+                
+                
+                  
+                  <hr>
+                  <div class="md-source-date">
+                    <small>
+                      
+                        Last update: March 12, 2020
+                      
+                    </small>
+                  </div>
+                
+              
+              
+                
+
+
+  <h2 id="__comments">Comments</h2>
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://rammusxu.github.io/toolkit/snippets/kubernetes/";
+      this.page.identifier =
+        "/snippets/kubernetes/";
+    };
+    (function() {
+      var d = document, s = d.createElement("script");
+      s.src = "//rammusxu.disqus.com/embed.js";
+      s.setAttribute("data-timestamp", +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../jenkins/" title="Jenkins" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Jenkins
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../linux/" title="Linux" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Linux
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
+<br> Copyright © 2015- Rammus Xu
+
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/rammusxu" target="_blank" rel="noopener" title="github" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://www.linkedin.com/in/rammusxu" target="_blank" rel="noopener" title="linkedin" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.c33a9706.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

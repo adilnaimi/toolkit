@@ -1,0 +1,2483 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="It's Rammus Toolkit. A collection of snippets, examples and solutions.">
+      
+      
+        <link rel="canonical" href="https://rammusxu.github.io/toolkit/today-i-learned/2020/">
+      
+      
+        <meta name="author" content="Rammus Xu">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.3">
+    
+    
+      
+        <title>2020 - Rammus Toolkit</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.adb8469c.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-67048750-3", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#2020-03-14" tabindex="0" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://rammusxu.github.io/toolkit" title="Rammus Toolkit" aria-label="Rammus Toolkit" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">build</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Rammus Toolkit
+            </span>
+            <span class="md-header-nav__topic">
+              
+                2020
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/RammusXu/toolkit/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://rammusxu.github.io/toolkit" title="Rammus Toolkit" class="md-nav__button md-logo">
+      
+        <i class="md-icon">build</i>
+      
+    </a>
+    Rammus Toolkit
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/RammusXu/toolkit/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Welcome" class="md-nav__link">
+      Welcome
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../help/" title="Help" class="md-nav__link">
+      Help
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Snippets
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Snippets
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../snippets/bash/" title="Bash" class="md-nav__link">
+      Bash
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../snippets/docker-compose/" title="Docker Compose" class="md-nav__link">
+      Docker Compose
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../snippets/docker/" title="Docker" class="md-nav__link">
+      Docker
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../snippets/elasticsearch/" title="Elasticsearch" class="md-nav__link">
+      Elasticsearch
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../snippets/gcp/" title="GCP" class="md-nav__link">
+      GCP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../snippets/github-action/" title="Github Action" class="md-nav__link">
+      Github Action
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../snippets/gitlabci/" title="Gitlab CI" class="md-nav__link">
+      Gitlab CI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../snippets/jenkins/" title="Jenkins" class="md-nav__link">
+      Jenkins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../snippets/kubernetes/" title="Kubernetes" class="md-nav__link">
+      Kubernetes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../snippets/linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../snippets/lua/" title="Lua" class="md-nav__link">
+      Lua
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../snippets/mac-setup/" title="Mac Setup" class="md-nav__link">
+      Mac Setup
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../snippets/make/" title="Make" class="md-nav__link">
+      Make
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../snippets/mongo/" title="Mongo" class="md-nav__link">
+      Mongo
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../snippets/nginx/" title="Nginx" class="md-nav__link">
+      Nginx
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../snippets/visual-studio/" title="Visual Studio" class="md-nav__link">
+      Visual Studio
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+    
+    <label class="md-nav__link" for="nav-4">
+      Today i learned
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Today i learned
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../2019/" title="2019" class="md-nav__link">
+      2019
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        2020
+      </label>
+    
+    <a href="./" title="2020" class="md-nav__link md-nav__link--active">
+      2020
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#2020-03-14" class="md-nav__link">
+    2020-03-14
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#find-other-lan-users-ip" class="md-nav__link">
+    Find other LAN user's IP
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2020-03-13" class="md-nav__link">
+    2020-03-13
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#httpswww17cecom" class="md-nav__link">
+    中國的測速網站 https://www.17ce.com/
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2020-03-12" class="md-nav__link">
+    2020-03-12
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dnsmasq-unsupported-option-check-that-dnsmasq-was-compiled-with-dhcptftpdnssecdbus-support" class="md-nav__link">
+    dnsmasq: unsupported option (check that dnsmasq was compiled with DHCP/TFTP/DNSSEC/DBus support)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parsing-dnssec-anchors-in-shell-scriptbash" class="md-nav__link">
+    Parsing dnssec anchors in shell script(bash)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commands-of-testing-domain" class="md-nav__link">
+    Commands of testing domain
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2020-03-11" class="md-nav__link">
+    2020-03-11
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#check-multiple-variables-are-not-none-in-python" class="md-nav__link">
+    Check multiple variables are not None in Python
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2020-03-10" class="md-nav__link">
+    2020-03-10
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gcs-roles" class="md-nav__link">
+    GCS roles
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2020-03-09" class="md-nav__link">
+    2020-03-09
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-nth-line-of-stdout-on-linux" class="md-nav__link">
+    Get nth line of stdout on linux
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sort-gcs-google-cloud-storage-objects-by-date" class="md-nav__link">
+    Sort GCS (google cloud storage) objects by date
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#measuring-kubernetes-dns" class="md-nav__link">
+    Measuring kubernetes dns
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2020-03-06" class="md-nav__link">
+    2020-03-06
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-does-python-redis-library-query-a-dns-record" class="md-nav__link">
+    How does python redis library query a DNS record?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-does-udp-request-receiving-responses" class="md-nav__link">
+    How does UDP request receiving responses.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#weave-scope-kubernetes" class="md-nav__link">
+    Weave Scope - 監控 kubernetes 的工具
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2020-03-05" class="md-nav__link">
+    2020-03-05
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#try-to-resolve-a-domain-in-kubernetes" class="md-nav__link">
+    Try to resolve a domain in kubernetes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2020-03-04" class="md-nav__link">
+    2020-03-04
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-to-perform-ddos-test-as-a-pentester" class="md-nav__link">
+    how-to-perform-ddos-test-as-a-pentester
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-netstress-on-kali-linux" class="md-nav__link">
+    Install netstress on kali linux
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-kali-linux-on-kubernetes" class="md-nav__link">
+    Run kali linux on Kubernetes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gke-nodelocal-dnscache" class="md-nav__link">
+    GKE NodeLocal DNSCache
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-dnsperf-on-alpine" class="md-nav__link">
+    Install dnsperf on alpine
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2020-03-03" class="md-nav__link">
+    2020-03-03
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#open-google-chrome-browser-in-mac-terminal" class="md-nav__link">
+    Open Google Chrome browser in Mac terminal
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2020-03-02" class="md-nav__link">
+    2020-03-02
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-temporary-pod-to-debug-and-kill-itself-after-an-hour" class="md-nav__link">
+    Create a temporary pod to debug and kill itself after an hour
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dns-load-testing-in-alpine" class="md-nav__link">
+    DNS load testing in Alpine
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gke-v113x-uses-kube-dns-rather-than-core-dns" class="md-nav__link">
+    GKE v1.13.x uses kube-dns rather than core-dns.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-gcc-compiler-in-alpine" class="md-nav__link">
+    Install gcc compiler in Alpine
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#echo-n" class="md-nav__link">
+    echo -n
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2020-02-27" class="md-nav__link">
+    2020-02-27
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-github-user-info" class="md-nav__link">
+    Get GitHub user info
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2020-02-26" class="md-nav__link">
+    2020-02-26
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-cloudflare-warp-as-vpn-on-macpc" class="md-nav__link">
+    Use CloudFlare WARP as VPN on Mac/PC
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refreshclean-cdn-cache-on-tencent-cloud" class="md-nav__link">
+    Refresh/Clean CDN cache on Tencent Cloud
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#you-might-have-to-verify-by-doing-a-request-from-a-location-with-a-cloudflare-edge" class="md-nav__link">
+    You might have to verify by doing a request from a location with a Cloudflare edge
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2020-02-24" class="md-nav__link">
+    2020-02-24
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cloudflare-worker-cant-resovlefind-domain" class="md-nav__link">
+    CloudFlare worker - Can't resovle/find domain
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloudflare-worker-how-to-handle-spa" class="md-nav__link">
+    CloudFlare worker - how to handle SPA
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2020-02-21" class="md-nav__link">
+    2020-02-21
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multiple-static-ip-in-a-load-balancer" class="md-nav__link">
+    Multiple static IP in a load balancer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-hpa-high-memory" class="md-nav__link">
+    Testing HPA high memory
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#about-kubernetes-hpahorizontal-pod-autoscaler" class="md-nav__link">
+    About Kubernetes HPA(Horizontal Pod Autoscaler)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2020-02-19" class="md-nav__link">
+    2020-02-19
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-environment-from-parent-process-in-nginxopenresty" class="md-nav__link">
+    Use environment from parent process in Nginx(OpenResty)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cannot-create-an-external-load-balancer-with-mix-protocols" class="md-nav__link">
+    cannot create an external load balancer with mix protocols
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2020-02-18" class="md-nav__link">
+    2020-02-18
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#try-docker-compose-health-check" class="md-nav__link">
+    Try docker-compose health check
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-docker-credential-osxkeychain-ci-db" class="md-nav__link">
+    Docker 更新後跳出 docker-credential-osxkeychain 想使用鑰匙圈 ci-db
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-use-cc-by-sa-license" class="md-nav__link">
+    How to use cc-by-sa license
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#print-a-colorful-text-in-terminal" class="md-nav__link">
+    Print a colorful text in terminal
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#render-a-chart-inside-markdown-with-canvasjs" class="md-nav__link">
+    Render a chart inside markdown with canvasjs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2020-02-15" class="md-nav__link">
+    2020-02-15
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#restart-a-kubernetes-resource-without-down-time-and-using-same-configyaml" class="md-nav__link">
+    Restart a kubernetes resource without down time and using same config(yaml)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-commnad-withoutignoring-output" class="md-nav__link">
+    Run commnad without(ignoring) output
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2020-02-13" class="md-nav__link">
+    2020-02-13
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker-compose" class="md-nav__link">
+    在 docker-compose 中的容器互相溝通
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mkdocs-minify-html-got-error" class="md-nav__link">
+    mkdocs minify html got error
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" class="md-nav__link md-nav__link--active">
+            Comments
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#2020-03-14" class="md-nav__link">
+    2020-03-14
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#find-other-lan-users-ip" class="md-nav__link">
+    Find other LAN user's IP
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2020-03-13" class="md-nav__link">
+    2020-03-13
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#httpswww17cecom" class="md-nav__link">
+    中國的測速網站 https://www.17ce.com/
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2020-03-12" class="md-nav__link">
+    2020-03-12
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dnsmasq-unsupported-option-check-that-dnsmasq-was-compiled-with-dhcptftpdnssecdbus-support" class="md-nav__link">
+    dnsmasq: unsupported option (check that dnsmasq was compiled with DHCP/TFTP/DNSSEC/DBus support)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parsing-dnssec-anchors-in-shell-scriptbash" class="md-nav__link">
+    Parsing dnssec anchors in shell script(bash)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commands-of-testing-domain" class="md-nav__link">
+    Commands of testing domain
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2020-03-11" class="md-nav__link">
+    2020-03-11
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#check-multiple-variables-are-not-none-in-python" class="md-nav__link">
+    Check multiple variables are not None in Python
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2020-03-10" class="md-nav__link">
+    2020-03-10
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gcs-roles" class="md-nav__link">
+    GCS roles
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2020-03-09" class="md-nav__link">
+    2020-03-09
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-nth-line-of-stdout-on-linux" class="md-nav__link">
+    Get nth line of stdout on linux
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sort-gcs-google-cloud-storage-objects-by-date" class="md-nav__link">
+    Sort GCS (google cloud storage) objects by date
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#measuring-kubernetes-dns" class="md-nav__link">
+    Measuring kubernetes dns
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2020-03-06" class="md-nav__link">
+    2020-03-06
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-does-python-redis-library-query-a-dns-record" class="md-nav__link">
+    How does python redis library query a DNS record?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-does-udp-request-receiving-responses" class="md-nav__link">
+    How does UDP request receiving responses.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#weave-scope-kubernetes" class="md-nav__link">
+    Weave Scope - 監控 kubernetes 的工具
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2020-03-05" class="md-nav__link">
+    2020-03-05
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#try-to-resolve-a-domain-in-kubernetes" class="md-nav__link">
+    Try to resolve a domain in kubernetes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2020-03-04" class="md-nav__link">
+    2020-03-04
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-to-perform-ddos-test-as-a-pentester" class="md-nav__link">
+    how-to-perform-ddos-test-as-a-pentester
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-netstress-on-kali-linux" class="md-nav__link">
+    Install netstress on kali linux
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-kali-linux-on-kubernetes" class="md-nav__link">
+    Run kali linux on Kubernetes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gke-nodelocal-dnscache" class="md-nav__link">
+    GKE NodeLocal DNSCache
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-dnsperf-on-alpine" class="md-nav__link">
+    Install dnsperf on alpine
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2020-03-03" class="md-nav__link">
+    2020-03-03
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#open-google-chrome-browser-in-mac-terminal" class="md-nav__link">
+    Open Google Chrome browser in Mac terminal
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2020-03-02" class="md-nav__link">
+    2020-03-02
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-temporary-pod-to-debug-and-kill-itself-after-an-hour" class="md-nav__link">
+    Create a temporary pod to debug and kill itself after an hour
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dns-load-testing-in-alpine" class="md-nav__link">
+    DNS load testing in Alpine
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gke-v113x-uses-kube-dns-rather-than-core-dns" class="md-nav__link">
+    GKE v1.13.x uses kube-dns rather than core-dns.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-gcc-compiler-in-alpine" class="md-nav__link">
+    Install gcc compiler in Alpine
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#echo-n" class="md-nav__link">
+    echo -n
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2020-02-27" class="md-nav__link">
+    2020-02-27
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-github-user-info" class="md-nav__link">
+    Get GitHub user info
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2020-02-26" class="md-nav__link">
+    2020-02-26
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-cloudflare-warp-as-vpn-on-macpc" class="md-nav__link">
+    Use CloudFlare WARP as VPN on Mac/PC
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refreshclean-cdn-cache-on-tencent-cloud" class="md-nav__link">
+    Refresh/Clean CDN cache on Tencent Cloud
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#you-might-have-to-verify-by-doing-a-request-from-a-location-with-a-cloudflare-edge" class="md-nav__link">
+    You might have to verify by doing a request from a location with a Cloudflare edge
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2020-02-24" class="md-nav__link">
+    2020-02-24
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cloudflare-worker-cant-resovlefind-domain" class="md-nav__link">
+    CloudFlare worker - Can't resovle/find domain
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloudflare-worker-how-to-handle-spa" class="md-nav__link">
+    CloudFlare worker - how to handle SPA
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2020-02-21" class="md-nav__link">
+    2020-02-21
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multiple-static-ip-in-a-load-balancer" class="md-nav__link">
+    Multiple static IP in a load balancer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-hpa-high-memory" class="md-nav__link">
+    Testing HPA high memory
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#about-kubernetes-hpahorizontal-pod-autoscaler" class="md-nav__link">
+    About Kubernetes HPA(Horizontal Pod Autoscaler)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2020-02-19" class="md-nav__link">
+    2020-02-19
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-environment-from-parent-process-in-nginxopenresty" class="md-nav__link">
+    Use environment from parent process in Nginx(OpenResty)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cannot-create-an-external-load-balancer-with-mix-protocols" class="md-nav__link">
+    cannot create an external load balancer with mix protocols
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2020-02-18" class="md-nav__link">
+    2020-02-18
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#try-docker-compose-health-check" class="md-nav__link">
+    Try docker-compose health check
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-docker-credential-osxkeychain-ci-db" class="md-nav__link">
+    Docker 更新後跳出 docker-credential-osxkeychain 想使用鑰匙圈 ci-db
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-use-cc-by-sa-license" class="md-nav__link">
+    How to use cc-by-sa license
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#print-a-colorful-text-in-terminal" class="md-nav__link">
+    Print a colorful text in terminal
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#render-a-chart-inside-markdown-with-canvasjs" class="md-nav__link">
+    Render a chart inside markdown with canvasjs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2020-02-15" class="md-nav__link">
+    2020-02-15
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#restart-a-kubernetes-resource-without-down-time-and-using-same-configyaml" class="md-nav__link">
+    Restart a kubernetes resource without down time and using same config(yaml)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-commnad-withoutignoring-output" class="md-nav__link">
+    Run commnad without(ignoring) output
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2020-02-13" class="md-nav__link">
+    2020-02-13
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker-compose" class="md-nav__link">
+    在 docker-compose 中的容器互相溝通
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mkdocs-minify-html-got-error" class="md-nav__link">
+    mkdocs minify html got error
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" class="md-nav__link md-nav__link--active">
+            Comments
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/RammusXu/toolkit/edit/master/docs/today-i-learned/2020.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>2020</h1>
+                
+                <p>What I learned in 2020.</p>
+<h2 id="2020-03-14">2020-03-14<a class="headerlink" href="#2020-03-14" title="Permanent link">&para;</a></h2>
+<h3 id="find-other-lan-users-ip">Find other LAN user's IP<a class="headerlink" href="#find-other-lan-users-ip" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code>arp -a
+</code></pre></div>
+
+<h2 id="2020-03-13">2020-03-13<a class="headerlink" href="#2020-03-13" title="Permanent link">&para;</a></h2>
+<h3 id="httpswww17cecom">中國的測速網站 <a href="https://www.17ce.com/">https://www.17ce.com/</a><a class="headerlink" href="#httpswww17cecom" title="Permanent link">&para;</a></h3>
+<p>可以測試 CDN 效果</p>
+<ul>
+<li>benchmark</li>
+<li>warm up</li>
+</ul>
+<h2 id="2020-03-12">2020-03-12<a class="headerlink" href="#2020-03-12" title="Permanent link">&para;</a></h2>
+<h3 id="dnsmasq-unsupported-option-check-that-dnsmasq-was-compiled-with-dhcptftpdnssecdbus-support">dnsmasq: unsupported option (check that dnsmasq was compiled with DHCP/TFTP/DNSSEC/DBus support)<a class="headerlink" href="#dnsmasq-unsupported-option-check-that-dnsmasq-was-compiled-with-dhcptftpdnssecdbus-support" title="Permanent link">&para;</a></h3>
+<div class="admonition solution">
+<p class="admonition-title">Solution</p>
+<div class="codehilite"><pre><span></span><code>apk --no-cache add dnsmasq-dnssec
+</code></pre></div>
+
+</div>
+<p>這個錯誤發生在:</p>
+<ul>
+<li>使用 alpine linux <code>apk add dnsmasq</code></li>
+<li>Enable dnssec</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="c1"># /etc/dnsmasq.conf</span>
+dnssec
+conf-file<span class="o">=</span>/usr/share/dnsmasq/trust-anchors.conf
+dnssec-check-unsigned
+</code></pre></div>
+
+<p>or
+<div class="codehilite"><pre><span></span><code><span class="err"># /etc/dnsmasq.conf</span>
+<span class="err">dnssec</span>
+<span class="err">trust-anchor=.,19036,8,2,49AAC11D7B6F6446702E54A1607371607A1A41855200FD2CE1CDDE32F24E8FB5</span>
+<span class="err">trust-anchor=.,20326,8,2,E06D44B80B8F1D39A95C0B0D7C65D08458E880409BBC683457104237C7F8EC8D</span>
+<span class="err">dnssec-check-unsigned</span>
+</code></pre></div></p>
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<div class="codehilite"><pre><span></span><code>nsmasq_1  <span class="p">|</span> dnsmasq: started, version <span class="m">2</span>.80 cachesize <span class="m">150</span>
+dnsmasq_1  <span class="p">|</span> dnsmasq: compile <span class="nb">time</span> options: IPv6 GNU-getopt no-DBus no-i18n no-IDN DHCP DHCPv6 no-Lua TFTP no-conntrack ipset auth DNSSEC loop-detect inotify dumpfile
+dnsmasq_1  <span class="p">|</span> dnsmasq: DNSSEC validation enabled
+dnsmasq_1  <span class="p">|</span> dnsmasq: configured with trust anchor <span class="k">for</span> &lt;root&gt; keytag <span class="m">20326</span>
+dnsmasq_1  <span class="p">|</span> dnsmasq: configured with trust anchor <span class="k">for</span> &lt;root&gt; keytag <span class="m">19036</span>
+</code></pre></div>
+
+</div>
+<h3 id="parsing-dnssec-anchors-in-shell-scriptbash">Parsing dnssec anchors in shell script(bash)<a class="headerlink" href="#parsing-dnssec-anchors-in-shell-scriptbash" title="Permanent link">&para;</a></h3>
+<p>ref: </p>
+<ul>
+<li><a href="https://stackoverflow.com/questions/19908777/curl-and-xmllint-pipe">https://stackoverflow.com/questions/19908777/curl-and-xmllint-pipe</a></li>
+<li><a href="https://data.iana.org/root-anchors/root-anchors.xml">https://data.iana.org/root-anchors/root-anchors.xml</a>
+<div class="codehilite"><pre><span></span><code><span class="n">curl</span> <span class="o">-</span><span class="n">s</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="k">data</span><span class="p">.</span><span class="n">iana</span><span class="p">.</span><span class="n">org</span><span class="o">/</span><span class="n">root</span><span class="o">-</span><span class="n">anchors</span><span class="o">/</span><span class="n">root</span><span class="o">-</span><span class="n">anchors</span><span class="p">.</span><span class="n">xml</span> <span class="o">|</span> <span class="err">\</span>
+  <span class="n">xmllint</span> <span class="c1">--format --xpath &#39;concat(&quot;trust-anchor=.,&quot;, /TrustAnchor/KeyDigest[1]/KeyTag, &quot;,&quot;, /TrustAnchor/KeyDigest[1]/Algorithm, &quot;,&quot;,/TrustAnchor/KeyDigest[1]//DigestType, &quot;,&quot;, /TrustAnchor/KeyDigest[1]/Digest)&#39; -</span>
+
+<span class="n">curl</span> <span class="o">-</span><span class="n">s</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="k">data</span><span class="p">.</span><span class="n">iana</span><span class="p">.</span><span class="n">org</span><span class="o">/</span><span class="n">root</span><span class="o">-</span><span class="n">anchors</span><span class="o">/</span><span class="n">root</span><span class="o">-</span><span class="n">anchors</span><span class="p">.</span><span class="n">xml</span> <span class="o">|</span> <span class="err">\</span>
+  <span class="n">xmllint</span> <span class="c1">--format --xpath &#39;concat(&quot;trust-anchor=.,&quot;, /TrustAnchor/KeyDigest[2]/KeyTag, &quot;,&quot;, /TrustAnchor/KeyDigest[2]/Algorithm, &quot;,&quot;,/TrustAnchor/KeyDigest[2]//DigestType, &quot;,&quot;, /TrustAnchor/KeyDigest[2]/Digest)&#39; -</span>
+</code></pre></div></li>
+</ul>
+<h3 id="commands-of-testing-domain">Commands of testing domain<a class="headerlink" href="#commands-of-testing-domain" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code>apk add bind-tools
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>nslookup swag.live localhost
+nslookup swag.live <span class="m">127</span>.0.0.1
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>dig @localhost swag.live
+dig @127.0.0.1 swag.live
+dig @8.8.8.8 swag.live
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="err">dig +trace swag.live</span>
+<span class="err">dig +short swag.live ns</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="err">dig @dnsmasq +dnssec swag.live</span>
+<span class="err">dig @dnsmasq +dnssec google.com</span>
+</code></pre></div>
+
+<h2 id="2020-03-11">2020-03-11<a class="headerlink" href="#2020-03-11" title="Permanent link">&para;</a></h2>
+<h3 id="check-multiple-variables-are-not-none-in-python">Check multiple variables are not None in Python<a class="headerlink" href="#check-multiple-variables-are-not-none-in-python" title="Permanent link">&para;</a></h3>
+<p>ref: <a href="https://stackoverflow.com/questions/42360956/what-is-the-most-pythonic-way-to-check-if-multiple-variables-are-not-none">https://stackoverflow.com/questions/42360956/what-is-the-most-pythonic-way-to-check-if-multiple-variables-are-not-none</a>
+<div class="codehilite"><pre><span></span><code><span class="n">params</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;PARAMS&#39;</span><span class="p">)</span>
+<span class="n">sid</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;SID&#39;</span><span class="p">)</span>
+<span class="n">skey</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;SKEY&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="kc">None</span> <span class="ow">in</span> <span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">sid</span><span class="p">,</span> <span class="n">skey</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Must have SID, SKEY, PARAMS&quot;</span><span class="p">)</span>
+    <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div></p>
+<h2 id="2020-03-10">2020-03-10<a class="headerlink" href="#2020-03-10" title="Permanent link">&para;</a></h2>
+<h3 id="gcs-roles">GCS roles<a class="headerlink" href="#gcs-roles" title="Permanent link">&para;</a></h3>
+<p>Storage Object Admin
+<div class="codehilite"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">resourcemanager.projects.get</span>
+<span class="l l-Scalar l-Scalar-Plain">resourcemanager.projects.list</span>
+<span class="l l-Scalar l-Scalar-Plain">storage.objects.create</span>
+<span class="l l-Scalar l-Scalar-Plain">storage.objects.delete</span>
+<span class="l l-Scalar l-Scalar-Plain">storage.objects.get</span>
+<span class="l l-Scalar l-Scalar-Plain">storage.objects.getIamPolicy</span>
+<span class="l l-Scalar l-Scalar-Plain">storage.objects.list</span>
+<span class="l l-Scalar l-Scalar-Plain">storage.objects.setIamPolicy</span>
+<span class="l l-Scalar l-Scalar-Plain">storage.objects.update</span>
+</code></pre></div></p>
+<p>Storage Object Creator
+<div class="codehilite"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">resourcemanager.projects.get</span>
+<span class="l l-Scalar l-Scalar-Plain">resourcemanager.projects.list</span>
+<span class="l l-Scalar l-Scalar-Plain">storage.objects.create</span>
+</code></pre></div></p>
+<p>Storage Object Viewer
+<div class="codehilite"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">resourcemanager.projects.get</span>
+<span class="l l-Scalar l-Scalar-Plain">resourcemanager.projects.list</span>
+<span class="l l-Scalar l-Scalar-Plain">storage.objects.get</span>
+<span class="l l-Scalar l-Scalar-Plain">storage.objects.list</span>
+</code></pre></div></p>
+<h2 id="2020-03-09">2020-03-09<a class="headerlink" href="#2020-03-09" title="Permanent link">&para;</a></h2>
+<h3 id="get-nth-line-of-stdout-on-linux">Get nth line of stdout on linux<a class="headerlink" href="#get-nth-line-of-stdout-on-linux" title="Permanent link">&para;</a></h3>
+<p>ref: <a href="https://stackoverflow.com/questions/1429556/command-to-get-nth-line-of-stdout">https://stackoverflow.com/questions/1429556/command-to-get-nth-line-of-stdout</a>
+<div class="codehilite"><pre><span></span><code>ls -l <span class="p">|</span> sed -n 2p
+ls -l <span class="p">|</span> head -2 <span class="p">|</span> tail -1
+</code></pre></div></p>
+<h3 id="sort-gcs-google-cloud-storage-objects-by-date">Sort GCS (google cloud storage) objects by date<a class="headerlink" href="#sort-gcs-google-cloud-storage-objects-by-date" title="Permanent link">&para;</a></h3>
+<p>ref: <a href="https://stackoverflow.com/a/51709554/3854890">https://stackoverflow.com/a/51709554/3854890</a>
+<div class="codehilite"><pre><span></span><code>gsutil ls -l gs://<span class="o">[</span>bucket-name<span class="o">]</span>/ <span class="p">|</span> sort -r -k <span class="m">2</span>
+</code></pre></div>
+Example:
+<div class="codehilite"><pre><span></span><code>~ gsutil ls -l gs://rammus.cf/download <span class="p">|</span> sort -r -k <span class="m">2</span>
+  <span class="m">62786148</span>  <span class="m">2020</span>-03-06T05:52:53Z  gs://rammus.cf/download/3.0.2.8087.086886.apk
+  <span class="m">62732280</span>  <span class="m">2020</span>-03-04T03:07:33Z  gs://rammus.cf/download/3.0.1-8070.apk
+  <span class="m">62729059</span>  <span class="m">2020</span>-03-02T16:25:22Z  gs://rammus.cf/download/3_0_1_8ca354.apk
+  <span class="m">11</span>  <span class="m">2020</span>-03-02T16:25:03Z  gs://rammus.cf/download/
+</code></pre></div></p>
+<h3 id="measuring-kubernetes-dns">Measuring kubernetes dns<a class="headerlink" href="#measuring-kubernetes-dns" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code>bash-5.0# <span class="nb">time</span> <span class="o">(</span><span class="k">for</span> i in <span class="o">{</span><span class="m">1</span>..100<span class="o">}</span><span class="p">;</span> <span class="k">do</span> host -U echoserver.ops &gt; /dev/null <span class="p">;</span> <span class="k">done</span><span class="o">)</span>
+
+real    0m1.150s
+user    0m0.445s
+sys 0m0.278s
+bash-5.0# <span class="nb">time</span> <span class="o">(</span><span class="k">for</span> i in <span class="o">{</span><span class="m">1</span>..100<span class="o">}</span><span class="p">;</span> <span class="k">do</span> host -U echoserver.ops.svc.cluster.local &gt; /dev/null <span class="p">;</span> <span class="k">done</span><span class="o">)</span>
+
+real    0m1.762s
+user    0m0.463s
+sys 0m0.362s
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>bash-5.0# host -v echoserver.ops
+Trying <span class="s2">&quot;echoserver.ops.ops.svc.cluster.local&quot;</span>
+Trying <span class="s2">&quot;echoserver.ops.svc.cluster.local&quot;</span>
+bash-5.0# host -v echoserver.ops.svc.cluster.local
+Trying <span class="s2">&quot;echoserver.ops.svc.cluster.local.ops.svc.cluster.local&quot;</span>
+Trying <span class="s2">&quot;echoserver.ops.svc.cluster.local.svc.cluster.local&quot;</span>
+Trying <span class="s2">&quot;echoserver.ops.svc.cluster.local.cluster.local&quot;</span>
+Trying <span class="s2">&quot;echoserver.ops.svc.cluster.local.google.internal&quot;</span>
+Trying <span class="s2">&quot;echoserver.ops.svc.cluster.local&quot;</span>
+
+bash-5.0# cat /etc/resolv.conf
+nameserver <span class="m">10</span>.24.0.10
+search ops.svc.cluster.local svc.cluster.local cluster.local google.internal
+options ndots:5
+</code></pre></div>
+
+<h2 id="2020-03-06">2020-03-06<a class="headerlink" href="#2020-03-06" title="Permanent link">&para;</a></h2>
+<h3 id="how-does-python-redis-library-query-a-dns-record">How does python redis library query a DNS record?<a class="headerlink" href="#how-does-python-redis-library-query-a-dns-record" title="Permanent link">&para;</a></h3>
+<h3 id="how-does-udp-request-receiving-responses">How does UDP request receiving responses.<a class="headerlink" href="#how-does-udp-request-receiving-responses" title="Permanent link">&para;</a></h3>
+<ul>
+<li>SOCK_STREAM: TCP</li>
+<li>SOCK_DGRAM: UDP</li>
+</ul>
+<p><a href="https://stackoverflow.com/questions/1815030/receiving-a-response-through-udp">https://stackoverflow.com/questions/1815030/receiving-a-response-through-udp</a></p>
+<ol>
+<li>Client emits UDP packet.</li>
+<li>Router passes UDP packet to the Internet.</li>
+<li>Router remembers that client sent a UDP packet to server, and establishes a mapping in its memory.</li>
+<li>Server sends a UDP packet, probably on the same port.</li>
+<li>Router receives packet, and checks mapping to find client talked to server recently.</li>
+<li>Router passes packet to client.</li>
+</ol>
+<p><a href="https://ns1.com/resources/dns-protocol">https://ns1.com/resources/dns-protocol</a></p>
+<p>DNS communication occurs via two types of messages: queries and replies. Both DNS query format and reply format consist of the following sections:</p>
+<ul>
+<li>The header section contains Identification; Flags; Number of questions; Number of answers; Number of authority resource records (RRs); and Number of additional resource records.</li>
+<li>The flag field contains sections of one or four bits, indicating type of message, whether the name server is authoritative; whether the query is recursive or not, whether request was truncated, and status.</li>
+<li>The question section contains the domain name and type of record (A, AAAA, MX, TXT, etc.) being resolved. Each label in the domain name is prefixed by its length.</li>
+<li>The answer section has the resource records of the queried name.</li>
+</ul>
+<p><a href="http://www-inf.int-evry.fr/~hennequi/CoursDNS/NOTES-COURS_eng/msg.html">http://www-inf.int-evry.fr/~hennequi/CoursDNS/NOTES-COURS_eng/msg.html</a></p>
+<h3 id="weave-scope-kubernetes">Weave Scope - 監控 kubernetes 的工具<a class="headerlink" href="#weave-scope-kubernetes" title="Permanent link">&para;</a></h3>
+<p>ref: <a href="https://www.weave.works/docs/scope/latest/installing/#kubernetes">https://www.weave.works/docs/scope/latest/installing/#kubernetes</a></p>
+<p>安裝 Weave Scope
+<div class="codehilite"><pre><span></span><code>kubectl apply -f <span class="s2">&quot;https://cloud.weave.works/k8s/scope.yaml?k8s-version=</span><span class="k">$(</span>kubectl version <span class="p">|</span> base64 <span class="p">|</span> tr -d <span class="s1">&#39;\n&#39;</span><span class="k">)</span><span class="s2">&quot;</span>
+</code></pre></div>
+Expose 服務到 localhost
+<div class="codehilite"><pre><span></span><code><span class="err">kubectl port-forward -n weave service/weave-scope-app 4040:80</span>
+<span class="err">open -a &quot;Google Chrome&quot; &quot;http://localhost:4040&quot;</span>
+</code></pre></div></p>
+<h2 id="2020-03-05">2020-03-05<a class="headerlink" href="#2020-03-05" title="Permanent link">&para;</a></h2>
+<h3 id="try-to-resolve-a-domain-in-kubernetes">Try to resolve a domain in kubernetes<a class="headerlink" href="#try-to-resolve-a-domain-in-kubernetes" title="Permanent link">&para;</a></h3>
+<p>Default <code>/etc/resolv.conf</code> is like:
+<div class="codehilite"><pre><span></span><code><span class="err">nameserver 10.24.0.10</span>
+<span class="err">search default.svc.cluster.local svc.cluster.local cluster.local google.internal</span>
+<span class="err">options ndots:5</span>
+</code></pre></div></p>
+<p>少於 5 個 dot (.) 將會先搜尋 <strong>search</strong> <code>default.svc.cluster.local svc.cluster.local cluster.local google.internal</code>
+<div class="codehilite"><pre><span></span><code>&gt; host -v a.a.a.www.google.com
+Trying <span class="s2">&quot;a.a.a.www.google.com&quot;</span>
+
+&gt; host -v a.a.www.google.com
+Trying <span class="s2">&quot;a.a.www.google.com.ops.svc.cluster.local&quot;</span>
+Trying <span class="s2">&quot;a.a.www.google.com.svc.cluster.local&quot;</span>
+Trying <span class="s2">&quot;a.a.www.google.com.cluster.local&quot;</span>
+Trying <span class="s2">&quot;a.a.www.google.com.google.internal&quot;</span>
+Trying <span class="s2">&quot;a.a.www.google.com&quot;</span>
+
+&gt; host -v www.google.com
+Trying <span class="s2">&quot;www.google.com.ops.svc.cluster.local&quot;</span>
+Trying <span class="s2">&quot;www.google.com.svc.cluster.local&quot;</span>
+Trying <span class="s2">&quot;www.google.com.cluster.local&quot;</span>
+Trying <span class="s2">&quot;www.google.com.google.internal&quot;</span>
+Trying <span class="s2">&quot;www.google.com&quot;</span>
+</code></pre></div></p>
+<h2 id="2020-03-04">2020-03-04<a class="headerlink" href="#2020-03-04" title="Permanent link">&para;</a></h2>
+<h3 id="how-to-perform-ddos-test-as-a-pentester">how-to-perform-ddos-test-as-a-pentester<a class="headerlink" href="#how-to-perform-ddos-test-as-a-pentester" title="Permanent link">&para;</a></h3>
+<p><a href="https://pentest.blog/how-to-perform-ddos-test-as-a-pentester/">https://pentest.blog/how-to-perform-ddos-test-as-a-pentester/</a></p>
+<h3 id="install-netstress-on-kali-linux">Install netstress on kali linux<a class="headerlink" href="#install-netstress-on-kali-linux" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code>apt-get update
+apt-get install netstress
+</code></pre></div>
+
+<h3 id="run-kali-linux-on-kubernetes">Run kali linux on Kubernetes<a class="headerlink" href="#run-kali-linux-on-kubernetes" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Pod</span>
+<span class="nt">metadata</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">kali</span>
+  <span class="nt">labels</span><span class="p">:</span>
+    <span class="nt">app</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">kali</span>
+<span class="nt">spec</span><span class="p">:</span>
+  <span class="c1">## Select node pool in GKE</span>
+  <span class="c1"># affinity:</span>
+  <span class="c1">#   nodeAffinity:</span>
+  <span class="c1">#     requiredDuringSchedulingIgnoredDuringExecution:</span>
+  <span class="c1">#       nodeSelectorTerms:</span>
+  <span class="c1">#       - matchExpressions:</span>
+  <span class="c1">#         - key: cloud.google.com/gke-nodepool</span>
+  <span class="c1">#           operator: In</span>
+  <span class="c1">#           values:</span>
+  <span class="c1">#           - &quot;pool-1&quot;</span>
+  <span class="nt">containers</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">kalilinux/kali</span>
+    <span class="nt">command</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&quot;/bin/sh&quot;</span><span class="p p-Indicator">,</span><span class="s">&quot;-c&quot;</span><span class="p p-Indicator">]</span>
+    <span class="nt">args</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="p p-Indicator">|</span>
+      <span class="no">tail -f /dev/null</span>
+    <span class="nt">imagePullPolicy</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">IfNotPresent</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">kali</span>
+  <span class="nt">restartPolicy</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Never</span>
+</code></pre></div>
+
+<h3 id="gke-nodelocal-dnscache">GKE NodeLocal DNSCache<a class="headerlink" href="#gke-nodelocal-dnscache" title="Permanent link">&para;</a></h3>
+<p><a href="https://cloud.google.com/kubernetes-engine/docs/how-to/nodelocal-dns-cache">https://cloud.google.com/kubernetes-engine/docs/how-to/nodelocal-dns-cache</a> </p>
+<ul>
+<li>Base on CoreDNS</li>
+</ul>
+<h3 id="install-dnsperf-on-alpine">Install dnsperf on alpine<a class="headerlink" href="#install-dnsperf-on-alpine" title="Permanent link">&para;</a></h3>
+<p>ref: 
+- <a href="https://github.com/ssro/dnsperf/blob/master/Dockerfile">https://github.com/ssro/dnsperf/blob/master/Dockerfile</a>
+- <a href="https://github.com/guessi/docker-dnsperf/blob/master/bench/k8s-dnsperf-bench.yaml">https://github.com/guessi/docker-dnsperf/blob/master/bench/k8s-dnsperf-bench.yaml</a>
+<div class="codehilite"><pre><span></span><code><span class="nv">DNSPERF</span><span class="o">=</span>dnsperf-2.3.2
+apk add --update --no-cache --virtual deps wget g++ make bind-dev openssl-dev libxml2-dev libcap-dev json-c-dev krb5-dev protobuf-c-dev fstrm-dev <span class="se">\</span>
+  <span class="o">&amp;&amp;</span> apk add --update --no-cache <span class="nb">bind</span> libcrypto1.1 <span class="se">\</span>
+  <span class="o">&amp;&amp;</span> wget https://www.dns-oarc.net/files/dnsperf/<span class="nv">$DNSPERF</span>.tar.gz <span class="se">\</span>
+  <span class="o">&amp;&amp;</span> tar zxvf <span class="nv">$DNSPERF</span>.tar.gz <span class="se">\</span>
+  <span class="o">&amp;&amp;</span> <span class="nb">cd</span> <span class="nv">$DNSPERF</span> <span class="se">\</span>
+  <span class="o">&amp;&amp;</span> sh configure <span class="se">\</span>
+  <span class="o">&amp;&amp;</span> make <span class="se">\</span>
+  <span class="o">&amp;&amp;</span> strip ./src/dnsperf ./src/resperf <span class="se">\</span>
+  <span class="o">&amp;&amp;</span> make install
+</code></pre></div></p>
+<div class="codehilite"><pre><span></span><code><span class="nb">echo</span> <span class="s2">&quot;kube-dns.kube-system.svc.cluster.local A&quot;</span> &gt; records.txt
+<span class="nb">echo</span> <span class="s2">&quot;echoserver.ops.svc.cluster.local A&quot;</span> &gt; records.txt
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>dnsperf -l <span class="m">100</span> <span class="se">\</span>
+        -s <span class="m">10</span>.20.5.17 <span class="se">\</span>
+        -T <span class="m">20</span> <span class="se">\</span>
+        -c <span class="m">20</span> <span class="se">\</span>
+        -q <span class="m">10000</span> <span class="se">\</span>
+        -Q <span class="m">10000</span> <span class="se">\</span>
+        -S <span class="m">5</span> <span class="se">\</span>
+        -d records.txt
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="err">  -l run for at most this many seconds</span>
+<span class="err">  -s the server</span>
+<span class="err">  -T the number of threads to run</span>
+<span class="err">  -c the number of clients to act as to query (default: 127.0.0.1)</span>
+<span class="err">  -q the maximum number of queries outstanding (default: 100)</span>
+<span class="err">  -Q limit the number of queries per second</span>
+<span class="err">  -S print qps statistics every N seconds</span>
+<span class="err">  -d the input data file (default: stdin)</span>
+</code></pre></div>
+
+<h2 id="2020-03-03">2020-03-03<a class="headerlink" href="#2020-03-03" title="Permanent link">&para;</a></h2>
+<h3 id="open-google-chrome-browser-in-mac-terminal">Open Google Chrome browser in Mac terminal<a class="headerlink" href="#open-google-chrome-browser-in-mac-terminal" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code>open -a <span class="s2">&quot;Google Chrome&quot;</span> <span class="s2">&quot;http://localhost:5601&quot;</span>
+</code></pre></div>
+
+<h2 id="2020-03-02">2020-03-02<a class="headerlink" href="#2020-03-02" title="Permanent link">&para;</a></h2>
+<h3 id="create-a-temporary-pod-to-debug-and-kill-itself-after-an-hour">Create a temporary pod to debug and kill itself after an hour<a class="headerlink" href="#create-a-temporary-pod-to-debug-and-kill-itself-after-an-hour" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Pod</span>
+<span class="nt">metadata</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">busybox1</span>
+  <span class="nt">labels</span><span class="p">:</span>
+    <span class="nt">app</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">busybox1</span>
+<span class="nt">spec</span><span class="p">:</span>
+  <span class="nt">containers</span><span class="p">:</span>
+  <span class="c1"># - image: busybox</span>
+  <span class="p p-Indicator">-</span> <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">alpine:3.11</span>
+    <span class="nt">command</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">sleep</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;3600&quot;</span>
+    <span class="nt">imagePullPolicy</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">IfNotPresent</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">busybox</span>
+  <span class="nt">restartPolicy</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Never</span>
+</code></pre></div>
+
+<h3 id="dns-load-testing-in-alpine">DNS load testing in Alpine<a class="headerlink" href="#dns-load-testing-in-alpine" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code>apk add gcc g++ make libffi-dev openssl-dev git
+git clone https://github.com/jedisct1/dnsblast.git
+<span class="nb">cd</span> dnsblast <span class="o">&amp;&amp;</span> make
+<span class="c1">#./dnsblast [host] [times] [request per second]</span>
+./dnsblast kube-dns.kube-system <span class="m">10000</span> <span class="m">1000</span>
+./dnsblast <span class="m">127</span>.0.0.1 <span class="m">10000</span> <span class="m">1000</span>
+</code></pre></div>
+
+<ul>
+<li>The command above will break kube-dns.</li>
+<li>There are 5 kube-dns pods, but only one is receiving request.<ul>
+<li>Caused by iptable and UDP.</li>
+</ul>
+</li>
+</ul>
+<div class="codehilite"><pre><span></span><code>dnsmasq I0302 <span class="m">08</span>:47:01.002440       <span class="m">1</span> nanny.go:146<span class="o">[]</span> dnsmasq<span class="o">[</span><span class="m">23</span><span class="o">]</span>: Maximum number of concurrent DNS queries reached <span class="o">(</span>max: <span class="m">1500</span><span class="o">)</span>
+sidecar W0302 <span class="m">08</span>:47:01.248582       <span class="m">1</span> server.go:64<span class="o">[]</span> Error getting metrics from dnsmasq: <span class="nb">read</span> udp <span class="m">127</span>.0.0.1:37986-&gt;127.0.0.1:53: i/o timeout
+</code></pre></div>
+
+<h3 id="gke-v113x-uses-kube-dns-rather-than-core-dns">GKE v1.13.x uses kube-dns rather than core-dns.<a class="headerlink" href="#gke-v113x-uses-kube-dns-rather-than-core-dns" title="Permanent link">&para;</a></h3>
+<p>ref: <a href="https://cloud.google.com/kubernetes-engine/docs/release-notes#new_features_6">https://cloud.google.com/kubernetes-engine/docs/release-notes#new_features_6</a></p>
+<p>GKE is using kube- rather than core-dns. No idea why they are doing this.</p>
+<h3 id="install-gcc-compiler-in-alpine">Install gcc compiler in Alpine<a class="headerlink" href="#install-gcc-compiler-in-alpine" title="Permanent link">&para;</a></h3>
+<p>ref: <a href="https://github.com/nange/blog/issues/3">https://github.com/nange/blog/issues/3</a>
+<div class="codehilite"><pre><span></span><code>apk add gcc g++ make libffi-dev openssl-dev
+</code></pre></div></p>
+<h3 id="echo-n">echo -n<a class="headerlink" href="#echo-n" title="Permanent link">&para;</a></h3>
+<p><a href="https://linux.die.net/man/1/echo">https://linux.die.net/man/1/echo</a>
+<div class="codehilite"><pre><span></span><code>-n
+<span class="k">do</span> not output the trailing newline
+</code></pre></div></p>
+<h2 id="2020-02-27">2020-02-27<a class="headerlink" href="#2020-02-27" title="Permanent link">&para;</a></h2>
+<h3 id="get-github-user-info">Get GitHub user info<a class="headerlink" href="#get-github-user-info" title="Permanent link">&para;</a></h3>
+<p><a href="https://developer.github.com/v3/#authentication">https://developer.github.com/v3/#authentication</a>
+<div class="codehilite"><pre><span></span><code>curl -u <span class="s2">&quot;username&quot;</span> https://api.github.com/user
+curl -H <span class="s2">&quot;Authorization: token </span><span class="nv">$PAT</span><span class="s2">&quot;</span> https://api.github.com/user
+</code></pre></div></p>
+<h2 id="2020-02-26">2020-02-26<a class="headerlink" href="#2020-02-26" title="Permanent link">&para;</a></h2>
+<h3 id="use-cloudflare-warp-as-vpn-on-macpc">Use CloudFlare WARP as VPN on Mac/PC<a class="headerlink" href="#use-cloudflare-warp-as-vpn-on-macpc" title="Permanent link">&para;</a></h3>
+<p><a href="https://community.cloudflare.com/t/tutorial-how-to-use-cloudflare-warp-on-your-mac/129919?fbclid=IwAR3OlvJrv2EW3KoH3GlDA-gURM5BgPKiaP5RDjjlgBHyYpKWbryZzbrPDGw">https://community.cloudflare.com/t/tutorial-how-to-use-cloudflare-warp-on-your-mac/129919?fbclid=IwAR3OlvJrv2EW3KoH3GlDA-gURM5BgPKiaP5RDjjlgBHyYpKWbryZzbrPDGw</a></p>
+<p>WARP (CloudFlare VPN) is made from Wireguard. Therefore we can generate a Wirrguard config from CloudFlare and use it on PC.</p>
+<h3 id="refreshclean-cdn-cache-on-tencent-cloud">Refresh/Clean CDN cache on Tencent Cloud<a class="headerlink" href="#refreshclean-cdn-cache-on-tencent-cloud" title="Permanent link">&para;</a></h3>
+<p><a href="https://console.cloud.tencent.com/cdn/refresh">https://console.cloud.tencent.com/cdn/refresh</a></p>
+<p>Just type what url you want to refresh.</p>
+<h3 id="you-might-have-to-verify-by-doing-a-request-from-a-location-with-a-cloudflare-edge">You might have to verify by doing a request from a location with a Cloudflare edge<a class="headerlink" href="#you-might-have-to-verify-by-doing-a-request-from-a-location-with-a-cloudflare-edge" title="Permanent link">&para;</a></h3>
+<p>I tested it on <a href="https://tools.pingdom.com/">https://tools.pingdom.com/</a></p>
+<ul>
+<li>test in Tokyo</li>
+<li>CloudFlare/Google CDN both have edges</li>
+<li>GCS hosting need more DNS time: 40 ms</li>
+</ul>
+<h2 id="2020-02-24">2020-02-24<a class="headerlink" href="#2020-02-24" title="Permanent link">&para;</a></h2>
+<h3 id="cloudflare-worker-cant-resovlefind-domain">CloudFlare worker - Can't resovle/find domain<a class="headerlink" href="#cloudflare-worker-cant-resovlefind-domain" title="Permanent link">&para;</a></h3>
+<p>Need to manully add this record to route worker.
+ref: <a href="https://community.cloudflare.com/t/a-record-name-for-worker/98841">https://community.cloudflare.com/t/a-record-name-for-worker/98841</a></p>
+<div class="admonition solution">
+<p class="admonition-title">Solution</p>
+<p>Add an A record to 192.0.2.1</p>
+</div>
+<h3 id="cloudflare-worker-how-to-handle-spa">CloudFlare worker - how to handle SPA<a class="headerlink" href="#cloudflare-worker-how-to-handle-spa" title="Permanent link">&para;</a></h3>
+<p>I found there's 404 when I tried to refresh in other page like /faq.</p>
+<p>ref: <a href="https://stackoverflow.com/questions/58432345/cloudflare-workers-spa-with-vuejs">https://stackoverflow.com/questions/58432345/cloudflare-workers-spa-with-vuejs</a>
+<div class="codehilite"><pre><span></span><code><span class="nx">options</span><span class="p">.</span><span class="nx">mapRequestToAsset</span> <span class="o">=</span> <span class="nx">req</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// First let&#39;s apply the default handler, which we imported from</span>
+    <span class="c1">// &#39;@cloudflare/kv-asset-handler&#39; at the top of the file. We do</span>
+    <span class="c1">// this because the default handler already has logic to detect</span>
+    <span class="c1">// paths that should map to HTML files, for which it appends</span>
+    <span class="c1">// `/index.html` to the path.</span>
+    <span class="nx">req</span> <span class="o">=</span> <span class="nx">mapRequestToAsset</span><span class="p">(</span><span class="nx">req</span><span class="p">)</span>
+
+    <span class="c1">// Now we can detect if the default handler decided to map to</span>
+    <span class="c1">// index.html in some specific directory.</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">url</span><span class="p">.</span><span class="nx">endsWith</span><span class="p">(</span><span class="s1">&#39;/index.html&#39;</span><span class="p">))</span> <span class="p">{</span>
+      <span class="c1">// Indeed. Let&#39;s change it to instead map to the root `/index.html`.</span>
+      <span class="c1">// This avoids the need to do a redundant lookup that we know will</span>
+      <span class="c1">// fail.</span>
+      <span class="k">return</span> <span class="k">new</span> <span class="nx">Request</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="k">new</span> <span class="nx">URL</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">url</span><span class="p">).</span><span class="nx">origin</span><span class="si">}</span><span class="sb">/index.html`</span><span class="p">,</span> <span class="nx">req</span><span class="p">)</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="c1">// The default handler decided this is not an HTML page. It&#39;s probably</span>
+      <span class="c1">// an image, CSS, or JS file. Leave it as-is.</span>
+      <span class="k">return</span> <span class="nx">req</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+</code></pre></div></p>
+<h2 id="2020-02-21">2020-02-21<a class="headerlink" href="#2020-02-21" title="Permanent link">&para;</a></h2>
+<h3 id="multiple-static-ip-in-a-load-balancer">Multiple static IP in a load balancer<a class="headerlink" href="#multiple-static-ip-in-a-load-balancer" title="Permanent link">&para;</a></h3>
+<p>Steps:</p>
+<ol>
+<li>Manual create ip addresses.</li>
+<li>Assign ip addresses to load balancer frontend</li>
+<li>Use <code>externalIPs</code> instead of <code>loadBalancerIP</code>
+<div class="codehilite"><pre><span></span><code><span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Service</span>
+<span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">metadata</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dnsmasq</span>
+<span class="nt">spec</span><span class="p">:</span>
+  <span class="nt">selector</span><span class="p">:</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dnsmasq</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">LoadBalancer</span>
+<span class="hll">  <span class="nt">externalIPs</span><span class="p">:</span>
+</span><span class="hll">  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">a.a.a.a</span>
+</span><span class="hll">  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">a.a.a.b</span>
+</span>  <span class="nt">ports</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dnsmasq-udp</span>
+    <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">53</span>
+    <span class="nt">protocol</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">UDP</span>
+    <span class="nt">targetPort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dnsmasq-udp</span>
+<span class="hll">  <span class="c1"># loadBalancerIP: a.a.a.a</span>
+</span></code></pre></div></li>
+</ol>
+<h3 id="testing-hpa-high-memory">Testing HPA high memory<a class="headerlink" href="#testing-hpa-high-memory" title="Permanent link">&para;</a></h3>
+<p>ref: <a href="https://github.com/feiskyer/kubernetes-handbook/blob/master/examples/hpa-memory.yaml">https://github.com/feiskyer/kubernetes-handbook/blob/master/examples/hpa-memory.yaml</a></p>
+<div class="codehilite"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">autoscaling/v2beta1</span>
+<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">HorizontalPodAutoscaler</span>
+<span class="nt">metadata</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">nginx-hpa</span>
+<span class="nt">spec</span><span class="p">:</span>
+  <span class="nt">scaleTargetRef</span><span class="p">:</span>
+    <span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">extensions/v1beta1</span>
+    <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Deployment</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dnsmasq</span>
+  <span class="nt">minReplicas</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+  <span class="nt">maxReplicas</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
+  <span class="nt">metrics</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Resource</span>
+    <span class="nt">resource</span><span class="p">:</span>
+      <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">memory</span>
+      <span class="nt">targetAverageUtilization</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">60</span>
+</code></pre></div>
+
+<p>and get in a container
+<div class="codehilite"><pre><span></span><code>$ kubectl <span class="nb">exec</span> -it dnsmasq-5964d6fdc-2ktt8 sh 
+</code></pre></div></p>
+<p>generate high memory usage
+<div class="codehilite"><pre><span></span><code>$ yes <span class="p">|</span> tr <span class="se">\\</span>n x <span class="p">|</span> head -c 100m <span class="p">|</span> grep n
+</code></pre></div></p>
+<h3 id="about-kubernetes-hpahorizontal-pod-autoscaler">About Kubernetes HPA(Horizontal Pod Autoscaler)<a class="headerlink" href="#about-kubernetes-hpahorizontal-pod-autoscaler" title="Permanent link">&para;</a></h3>
+<p>ref: <a href="https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale">https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale</a></p>
+<ul>
+<li>desiredReplicas = ceil[currentReplicas * ( currentMetricValue / desiredMetricValue )]</li>
+<li><a href="https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/#how-does-the-horizontal-pod-autoscaler-work">每 15 秒檢查一次</a></li>
+<li><a href="https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/#support-for-cooldown-delay">預設 downscale: 5m</a></li>
+</ul>
+<h2 id="2020-02-19">2020-02-19<a class="headerlink" href="#2020-02-19" title="Permanent link">&para;</a></h2>
+<h3 id="use-environment-from-parent-process-in-nginxopenresty">Use environment from parent process in Nginx(OpenResty)<a class="headerlink" href="#use-environment-from-parent-process-in-nginxopenresty" title="Permanent link">&para;</a></h3>
+<p>在 nginx 讀取環境變數的正確方法:</p>
+<ul>
+<li>先在 root block export 變數</li>
+<li>使用 lua <code>os.getenv("MY_ENV"))</code>
+<div class="codehilite"><pre><span></span><code><span class="err">env MY_ENV;</span>
+<span class="err">env PATH;</span>
+<span class="err">http {</span>
+<span class="err">    server {</span>
+<span class="err">        location / {</span>
+<span class="err">            content_by_lua_block {</span>
+<span class="err">                ngx.say(os.getenv(&quot;MY_ENV&quot;));</span>
+<span class="err">                ngx.say(os.getenv(&quot;PATH&quot;));</span>
+<span class="err">            }</span>
+<span class="err">        }</span>
+<span class="err">    }</span>
+<span class="err">}</span>
+</code></pre></div></li>
+</ul>
+<h3 id="cannot-create-an-external-load-balancer-with-mix-protocols">cannot create an external load balancer with mix protocols<a class="headerlink" href="#cannot-create-an-external-load-balancer-with-mix-protocols" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code>The Service <span class="s2">&quot;dnsmasq&quot;</span> is invalid: spec.ports: Invalid value: <span class="o">[]</span>core.ServicePort<span class="o">{</span>core.ServicePort<span class="o">{</span>Name:<span class="s2">&quot;dnsmasq&quot;</span>, Protocol:<span class="s2">&quot;TCP&quot;</span>, Port:53, TargetPort:intstr.IntOrString<span class="o">{</span>Type:1, IntVal:0, StrVal:<span class="s2">&quot;dnsmasq&quot;</span><span class="o">}</span>, NodePort:0<span class="o">}</span>, core.ServicePort<span class="o">{</span>Name:<span class="s2">&quot;dnsmasq-udp&quot;</span>, Protocol:<span class="s2">&quot;UDP&quot;</span>, Port:53, TargetPort:intstr.IntOrString<span class="o">{</span>Type:1, IntVal:0, StrVal:<span class="s2">&quot;dnsmasq-udp&quot;</span><span class="o">}</span>, NodePort:0<span class="o">}}</span>: cannot create an external load balancer with mix protocols
+</code></pre></div>
+
+<h2 id="2020-02-18">2020-02-18<a class="headerlink" href="#2020-02-18" title="Permanent link">&para;</a></h2>
+<h3 id="try-docker-compose-health-check">Try docker-compose health check<a class="headerlink" href="#try-docker-compose-health-check" title="Permanent link">&para;</a></h3>
+<p><a href="https://github.com/peter-evans/docker-compose-healthcheck">https://github.com/peter-evans/docker-compose-healthcheck</a>
+<div class="codehilite"><pre><span></span><code><span class="n">healthcheck</span><span class="o">:</span>
+  <span class="n">test</span><span class="o">:</span> <span class="o">[</span><span class="s2">&quot;CMD-SHELL&quot;</span><span class="o">,</span> <span class="s2">&quot;pg_isready -U postgres&quot;</span><span class="o">]</span>
+  <span class="n">interval</span><span class="o">:</span> <span class="mi">10</span><span class="n">s</span>
+  <span class="n">timeout</span><span class="o">:</span> <span class="mi">5</span><span class="n">s</span>
+  <span class="n">retries</span><span class="o">:</span> <span class="mi">5</span>
+</code></pre></div></p>
+<h3 id="docker-docker-credential-osxkeychain-ci-db">Docker 更新後跳出 docker-credential-osxkeychain 想使用鑰匙圈 ci-db<a class="headerlink" href="#docker-docker-credential-osxkeychain-ci-db" title="Permanent link">&para;</a></h3>
+<p><a href="https://github.com/docker/for-mac/issues/3805#issuecomment-518619953">https://github.com/docker/for-mac/issues/3805#issuecomment-518619953</a></p>
+<div class="admonition solution">
+<p class="admonition-title">Solution</p>
+<p>Open <code>~/.docker/config.json</code></p>
+<p>Set <code>"credsStore":""</code></p>
+</div>
+<h3 id="how-to-use-cc-by-sa-license">How to use cc-by-sa license<a class="headerlink" href="#how-to-use-cc-by-sa-license" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Plain text: <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode.txt">https://creativecommons.org/licenses/by-sa/4.0/legalcode.txt</a></p>
+</li>
+<li>
+<p>Image: <a href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
+  <div class="codehilite"><pre><span></span><code><span class="nt">&lt;a</span> <span class="na">rel=</span><span class="s">&quot;license&quot;</span> <span class="na">href=</span><span class="s">&quot;http://creativecommons.org/licenses/by-sa/4.0/&quot;</span><span class="nt">&gt;&lt;img</span> <span class="na">alt=</span><span class="s">&quot;Creative Commons License&quot;</span> <span class="na">style=</span><span class="s">&quot;border-width:0&quot;</span> <span class="na">src=</span><span class="s">&quot;https://i.creativecommons.org/l/by-sa/4.0/88x31.png&quot;</span> <span class="nt">/&gt;&lt;/a&gt;</span>
+</code></pre></div>
+  <div class="codehilite"><pre><span></span><code><span class="err">[![](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)</span>
+</code></pre></div></p>
+</li>
+</ul>
+<h3 id="print-a-colorful-text-in-terminal">Print a colorful text in terminal<a class="headerlink" href="#print-a-colorful-text-in-terminal" title="Permanent link">&para;</a></h3>
+<p><a href="../../snippets/bash#ansi-">ANSI - 輸出文字變色</a>
+<div class="codehilite"><pre><span></span><code><span class="nb">echo</span> -e <span class="s2">&quot;\e[1;31mHello\e[0m World&quot;</span>
+</code></pre></div></p>
+<h3 id="render-a-chart-inside-markdown-with-canvasjs">Render a chart inside markdown with canvasjs<a class="headerlink" href="#render-a-chart-inside-markdown-with-canvasjs" title="Permanent link">&para;</a></h3>
+<script>
+window.onload = function () {
+
+  var limit = 50000;
+  var y = 100;    
+  var data = [];
+  var dataSeries = { type: "line" };
+  var dataPoints = [];
+  for (var i = 0; i < limit; i += 1) {
+    y += Math.round(Math.random() * 10 - 5);
+    dataPoints.push({
+      x: i,
+      y: y
+    });
+  }
+  dataSeries.dataPoints = dataPoints;
+  data.push(dataSeries);
+
+  //Better to construct options first and then pass it as a parameter
+  var options = {
+    zoomEnabled: true,
+    animationEnabled: true,
+    title: {
+      text: "Try Zooming - Panning"
+    },
+    axisY: {
+      includeZero: false,
+      lineThickness: 1
+    },
+    data: data  // random data
+  };
+
+  var chart = new CanvasJS.Chart("chartContainer", options);
+  chart.render();
+}
+</script>
+
+<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+<h2 id="2020-02-15">2020-02-15<a class="headerlink" href="#2020-02-15" title="Permanent link">&para;</a></h2>
+<h3 id="restart-a-kubernetes-resource-without-down-time-and-using-same-configyaml">Restart a kubernetes resource without down time and using same config(yaml)<a class="headerlink" href="#restart-a-kubernetes-resource-without-down-time-and-using-same-configyaml" title="Permanent link">&para;</a></h3>
+<p>Kubernetes &gt;= 1.15 </p>
+<p>ref: <a href="https://github.com/kubernetes/kubernetes/issues/33664#issuecomment-497242094">https://github.com/kubernetes/kubernetes/issues/33664#issuecomment-497242094</a></p>
+<p>Gracefully rolling restart deployment.
+<div class="codehilite"><pre><span></span><code>kubectl rollout restart deployment/my-sites --namespace<span class="o">=</span>default
+</code></pre></div></p>
+<h3 id="run-commnad-withoutignoring-output">Run commnad without(ignoring) output<a class="headerlink" href="#run-commnad-withoutignoring-output" title="Permanent link">&para;</a></h3>
+<p><a href="https://askubuntu.com/questions/474556/hiding-output-of-a-command">https://askubuntu.com/questions/474556/hiding-output-of-a-command</a></p>
+<div class="codehilite"><pre><span></span><code><span class="nb">command</span> &gt; /dev/null <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+<span class="nb">command</span> &gt;<span class="p">&amp;</span> /dev/null
+</code></pre></div>
+
+<p>Example: 
+Still show errors when command failed.
+<div class="codehilite"><pre><span></span><code>$ edho hi &gt; /dev/null
+zsh: <span class="nb">command</span> not found: edho
+</code></pre></div>
+Don't show error even when command failed.
+<div class="codehilite"><pre><span></span><code>$ edho hi &gt;<span class="p">&amp;</span> /dev/null
+</code></pre></div></p>
+<h2 id="2020-02-13">2020-02-13<a class="headerlink" href="#2020-02-13" title="Permanent link">&para;</a></h2>
+<h3 id="docker-compose">在 docker-compose 中的容器互相溝通<a class="headerlink" href="#docker-compose" title="Permanent link">&para;</a></h3>
+<p>service name 會被綁到 DNS，可以直接使用 service name 當作 host</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">version</span><span class="p">:</span> <span class="s">&#39;3&#39;</span>
+<span class="nt">services</span><span class="p">:</span>
+  <span class="nt">redis</span><span class="p">:</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="s">&quot;redis:alpine&quot;</span>
+    <span class="nt">ports</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;6379:6379&quot;</span>
+  <span class="nt">celery</span><span class="p">:</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="s">&quot;celery:4.0.2&quot;</span>
+    <span class="nt">environment</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">CELERY_BROKER_URL=redis://redis</span>
+  <span class="nt">celery-2</span><span class="p">:</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="s">&quot;celery:4.0.2&quot;</span>
+    <span class="nt">environment</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">CELERY_BROKER_URL=redis://redis</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>$ docker network ls
+NETWORK ID          NAME                        DRIVER              SCOPE
+01681ec52fea        celery_default              bridge              <span class="nb">local</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>$ docker <span class="nb">exec</span> -it celery_celery_1 bash
+user@dcd8cf4a9d04:~$ ping celery-2
+PING celery-2 <span class="o">(</span><span class="m">192</span>.168.0.4<span class="o">)</span>: <span class="m">56</span> data bytes
+<span class="m">64</span> bytes from <span class="m">192</span>.168.0.4: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">0</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">64</span> <span class="nv">time</span><span class="o">=</span><span class="m">0</span>.162 ms
+<span class="m">64</span> bytes from <span class="m">192</span>.168.0.4: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">1</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">64</span> <span class="nv">time</span><span class="o">=</span><span class="m">0</span>.223 ms
+^C--- celery-2 ping statistics ---
+<span class="m">2</span> packets transmitted, <span class="m">2</span> packets received, <span class="m">0</span>% packet loss
+round-trip min/avg/max/stddev <span class="o">=</span> <span class="m">0</span>.162/0.193/0.223/0.031 ms
+user@dcd8cf4a9d04:~$ ping celery-3
+ping: unknown host
+</code></pre></div>
+
+<h3 id="mkdocs-minify-html-got-error">mkdocs minify html got error<a class="headerlink" href="#mkdocs-minify-html-got-error" title="Permanent link">&para;</a></h3>
+<p>mkdocs.yaml
+<div class="codehilite"><pre><span></span><code><span class="nt">plugins</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">minify</span><span class="p">:</span>
+      <span class="nt">minify_html</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+</code></pre></div></p>
+<div class="admonition bug">
+<p class="admonition-title">Bug</p>
+<div class="codehilite"><pre><span></span><code>    print <span class="s2">&quot;htmlmin option &quot;</span> + key + <span class="s2">&quot; not recognized&quot;</span>
+                        ^
+SyntaxError: Missing parentheses in call to <span class="s1">&#39;print&#39;</span>. Did you mean print<span class="o">(</span><span class="s2">&quot;htmlmin option &quot;</span> + key + <span class="s2">&quot; not recognized&quot;</span><span class="o">)</span>?
+</code></pre></div>
+
+</div>
+<div class="admonition solution">
+<p class="admonition-title">Solution</p>
+<p>ref: <a href="https://github.com/byrnereese/mkdocs-minify-plugin/issues/8">https://github.com/byrnereese/mkdocs-minify-plugin/issues/8</a></p>
+<p>Upgrade mkdocs-minify-plugin&gt;= <mark>0.2.3</mark></p>
+</div>
+                
+                  
+                
+                
+                  
+                  <hr>
+                  <div class="md-source-date">
+                    <small>
+                      
+                        Last update: March 17, 2020
+                      
+                    </small>
+                  </div>
+                
+              
+              
+                
+
+
+  <h2 id="__comments">Comments</h2>
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://rammusxu.github.io/toolkit/today-i-learned/2020/";
+      this.page.identifier =
+        "/today-i-learned/2020/";
+    };
+    (function() {
+      var d = document, s = d.createElement("script");
+      s.src = "//rammusxu.disqus.com/embed.js";
+      s.setAttribute("data-timestamp", +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../2019/" title="2019" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                2019
+              </span>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
+<br> Copyright © 2015- Rammus Xu
+
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/rammusxu" target="_blank" rel="noopener" title="github" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://www.linkedin.com/in/rammusxu" target="_blank" rel="noopener" title="linkedin" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.c33a9706.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>
